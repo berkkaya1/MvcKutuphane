@@ -1,0 +1,31 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List <TBLKATEGORI>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<!--Entity ve model ekleyerek databasedeki kategorileri bir tablo seklinde foreach ile bastirdim.-->
+<table class="table table-bordered">
+    <tr>
+        <th>KATEGORI ID</th>
+        <th>KATEGORI ADI</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+    </tr>
+     @foreach(var ktg in Model)
+     {
+    <tr>
+        <td>@ktg.ID</td>
+        <td>@ktg.AD</td>
+        <td><a href="/Kategori/KategoriSil/@ktg.ID" class="btn btn-danger">SIL</a></td>
+        <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-success">GUNCELLE</a></td>
+    </tr>
+     }
+</table>
+
+<!--Yeni Kategori eklemek icin buton-->
+<a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a>
+

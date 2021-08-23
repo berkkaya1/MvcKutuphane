@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Kitaplarim";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<br />
+<h2>Kitap Geçmişi</h2>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        
+        <th>Kitap Adı:</th>
+        <th>Alis Tarihi:</th>
+        <th>Uye İade Tarihi:</th>
+
+    </tr>
+
+     @foreach (var k in Model)
+        {
+            <tr>            
+                <td>@k.TBLKITAP.AD</td>
+                <td>@Convert.ToDateTime(k.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(k.UYEGETIRTARIH).ToString("dd/MM/yyyy")</td>             
+            </tr>
+
+        }
+</table>

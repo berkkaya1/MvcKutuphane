@@ -1,0 +1,42 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>HAREKET ID:</label>
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        <label>KITAP ADI:</label>
+        @Html.TextBoxFor(k => k.TBLKITAP.AD, new { @class = "form-control" })
+        <br />
+        <label>UYE:</label>
+        @Html.TextBoxFor(k => k.TBLUYELER.AD, new { @class = "form-control" })
+        <br />
+        <label>PERSONEL ADI:</label>
+        @Html.TextBoxFor(k => k.TBLPERSONEL.PERSONEL, new { @class = "form-control" })
+        <br />
+        <label>ALIS TARIH:</label>
+        @Html.TextBoxFor(k => k.ALISTARIH, "{0: dd.MMMM.yyyy }", new { @class = "form-control" })
+        <br />
+        <label>NORMAL IADE TARIH:</label>
+        @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MMMM.yyyy }", new { @class = "form-control" })
+        <br />
+        <label>UYENIN GETIRDIGI IADE TARIH:</label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH"  value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <label>Gec Gelen Gün Sayısı</label>
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr" />
+    </div>
+
+    <div>
+        <button class="btn btn-info" style="background-color:#ff6a00" >Odunc Kitabi Geri Al</button>
+    </div>
+}
+
+
+

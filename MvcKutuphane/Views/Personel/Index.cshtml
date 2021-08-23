@@ -1,0 +1,31 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLPERSONEL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Personeller</h2>
+
+<!--Entity ve model ekleyerek databasedeki kategorileri bir tablo seklinde foreach ile bastirdim.-->
+<table class="table table-bordered">
+    <tr>
+        <th>PERSONEL ID</th>
+        <th>PERSONEL ADI</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.ID</td>
+            <td>@prs.PERSONEL</td>
+            <td><a href="/Personel/PersonelSil/@prs.ID" class="btn btn-danger">SIL</a></td>
+            <td><a href="/Personel/PersonelGetir/@prs.ID" class="btn btn-success">GUNCELLE</a></td>
+        </tr>
+    }
+</table>
+
+<!--Personel icindeki personelekle actionresultina gidecek.-->
+<a href="/Personel/PersonelEkle/" class="btn btn-primary">Yeni Personel Ekle</a>
+
